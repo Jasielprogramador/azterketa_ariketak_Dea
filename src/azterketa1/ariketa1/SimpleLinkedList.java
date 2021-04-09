@@ -25,4 +25,33 @@ public class SimpleLinkedList<String> {
         this.data = data;
         this.first = first;
     }
+
+    public void addFirst(String a){
+        if(first == null){
+            DoubleNode<String> berria = new DoubleNode<String>(a,null,null);
+            first = berria;
+        }
+        else{
+            DoubleNode<String> berria = new DoubleNode<String>(a,null,null);
+            berria.next = first;
+            first.prev = berria;
+            first = berria;
+        }
+    }
+
+    public void addLast(String a){
+        DoubleNode<String> u = first;
+        if(first == null){
+            DoubleNode<String> berria = new DoubleNode<String>(a,null,null);
+            first = berria;
+        }
+        else{
+            DoubleNode<String> berria = new DoubleNode<String>(a,null,null);
+            u.next = berria;
+            berria.prev = u;
+            u = u.next;
+        }
+    }
+
+
 }

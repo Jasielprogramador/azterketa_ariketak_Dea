@@ -8,6 +8,14 @@ public class Eleccion {
     SimpleLinkedList<Municipio> municipios;
     SimpleLinkedList<Provincia> provincias;
 
+    public añadirCandidaturas(SimpleLinkedList<Candidatura> lc){
+        lc.goFirst();
+
+        while(lc.hasNext()){
+
+        }
+    }
+
 
 
 }

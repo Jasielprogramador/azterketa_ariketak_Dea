@@ -12,44 +12,25 @@ public class DoubleLinkedList<T> {
 
             boolean jokoTxarra = false;
 
-            while(unekoa != null){                  //N:DoubleNode-a errekorritzeko
-                if(unekoa.getData() == pal) {
-                    for (int i = 0; i < n; i++) {      //M:emaitzan, listan n zenbaki ezkerrerantz dagoen
-                                                        //double node-a lortzeko
-                        if (unekoa.prev == null) {
-                            jokoTxarra = true;
-                            break;
-                        } else {
-                            unekoa = unekoa.prev;
-                        }
-                    }
+       while(unekoa.getData() != pal){
+           unekoa = unekoa.next;
+       }
 
-                    if (jokoTxarra != true) {
-                        while (unekoa.getData() != pal) {       //A:emaitzan, listan n zenbaki ezkerrerantz dauden
-                                                                //zenbakiak jartzeko
-                            if (emaitza == null) {
-                                emaitza.setFirst(unekoa);
-                            } else {
-                                u = unekoa;
-                                u = u.next;
-                            }
-                        }
+       emaitza.add(pal);
 
-                        for (int i = 0; i < n; i++) {           //B:emaitzan, listan n zenbaki eskuinerantz dauden
-                                                                //zenbakiak jartzeko
-                            if (emaitza == null) {
-                                emaitza.setFirst(unekoa);
-                            } else {
-                                u = unekoa;
-                                u = u.next;
-                            }
-                        }
+       int i = 0;
 
-                    }
-                }
-            }
-            return emaitza;
-        }
-    }
+       DoubleNode<T> aux = unekoa.prev;
 
-    //Kasu honetan kostua O(N*(M+A+B)) izango litzateke, hau da, kuadratikoa izango litzateke
+       while(i<n && aux != null){
+           emaitza.addFirst(aux.getData());
+           aux = aux.prev;
+       }
+
+       i = 0;
+       aux = unekoa.next
+       while(i<n && aux != null){
+           emaitza.addLast(aux.getData());
+           aux = aux.next;
+       }
+
